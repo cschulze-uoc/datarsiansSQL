@@ -1,0 +1,67 @@
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Carpeta de salida (compilación)
+out/
+build/
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
+
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.log
+*.tmp
+
+# Archivos de error de la JVM
+hs_err_pid*
+replay_pid*
+
+# BlueJ
+*.ctxt
+
+# J2ME
+.mtj.tmp/
+
+### VS Code ###
+.vscode/
+
+### Eclipse ###
+*.launch
+.classpath
+.project
+.settings/
+bin/
+target/
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Otros IDEs y archivos redundantes
+*.swp
+*.bak
+*.old
+*.orig
+*.rej
+
+# Archivos del sistema de control de versiones
+*.suo
+*.user
+*.sln
+*.db
+
+# Librerías externas
+# lib/
+# mysql-connector-j-*.jar
