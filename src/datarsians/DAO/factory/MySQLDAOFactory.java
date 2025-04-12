@@ -1,21 +1,27 @@
-package datarsians.factory;
+package datarsians.DAO.factory;
 
-import datarsians.datos.ArticuloDAOImpl;
-import datarsians.datos.BBDD_Util;
-import datarsians.datos.ClienteDAOImpl;
+import datarsians.DAO.MySQL.ArticuloDAOImpl;
+import datarsians.utils.BBDD_Util;
+import datarsians.DAO.MySQL.ClienteDAOImpl;
 import datarsians.DAO.ArticuloDAO;
 import datarsians.DAO.ClienteDAO;
 import datarsians.DAO.PedidoDAO;
-import datarsians.datos.PedidoDAOImpl;
+import datarsians.DAO.MySQL.PedidoDAOImpl;
 
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class MySQLDAOFactory extends DAOFactory {
     private final Connection conn;
 
     public MySQLDAOFactory() {
-        this.conn = BBDD_Util.getConnection();
+        try {
+            this.conn = BBDD_Util.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error al obtener la conexión con la base de datos", e);
+        }
     }
 
     @Override

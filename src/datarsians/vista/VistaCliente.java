@@ -5,6 +5,7 @@ import datarsians.modelo.Cliente;
 import datarsians.modelo.ClienteEstandar;
 import datarsians.modelo.ClientePremium;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class VistaCliente {
@@ -13,7 +14,7 @@ public class VistaCliente {
         this.controladorCliente = controladorCliente;
 
     }
-    public void menuClientes() {
+    public void menuClientes() throws SQLException {
         boolean salir = false;
         int opcion;
 
@@ -47,7 +48,7 @@ public class VistaCliente {
         } while (!salir);
     }
 
-    public Cliente agregarCliente() {
+    public Cliente agregarCliente() throws SQLException {
         List<String> listaDnis = controladorCliente.obtenerListaDeDnis();
         List<String> listaEmails = controladorCliente.obtenerListaDeEmails();
 
@@ -69,7 +70,7 @@ public class VistaCliente {
         return nuevoCliente;
     }
 
-    private void listarClientes(Class<?> tipoCliente) {
+    private void listarClientes(Class<?> tipoCliente) throws SQLException {
         List<Cliente> clientes = controladorCliente.getClientes(tipoCliente);
 
         if (clientes.isEmpty()) {

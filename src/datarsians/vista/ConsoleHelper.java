@@ -3,7 +3,8 @@ package datarsians.vista;
 import datarsians.excepciones.DniDuplicado;
 import datarsians.excepciones.EmailDuplicado;
 import datarsians.excepciones.EmailNoValido;
-import datarsians.modelo.Datos;
+import datarsians.utils.validations;
+
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -55,7 +56,7 @@ public class ConsoleHelper {
      * SolicitarEmailPorConsola Metodo para solicitar un email al usuario y validarlo.
      *
      * @param prompt El mensaje que se mostrara al usuario.
-     * @retrum El email que el usuario ha ingresado.
+     * @return El email que el usuario ha ingresado.
      */
     public static String SolicitarEmailPorConsola(String prompt, List<String> listaEmails) {
         String email;
@@ -65,7 +66,7 @@ public class ConsoleHelper {
             email = teclado.nextLine().trim();
 
             try {
-                if (!Datos.esEmailValido(email)) {
+                if (!validations.esEmailValido(email)) {
                     throw new EmailNoValido("Error: El email ingresado no es válido.");
                 }
 
@@ -201,7 +202,7 @@ public class ConsoleHelper {
     public static LocalDateTime SolicitarFechaPorConsola(String texto) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         while (true) {
-            System.out.print(texto);;
+            System.out.print(texto);
             try {
                 return LocalDate.parse(teclado.nextLine().trim(), formatter).atStartOfDay();
             } catch (Exception e){

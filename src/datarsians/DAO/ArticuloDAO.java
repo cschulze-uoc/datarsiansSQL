@@ -9,4 +9,6 @@ public interface    ArticuloDAO {
     void insertar(Articulo articulo) throws SQLException;
     Articulo buscarPorCodigo(String codigo) throws SQLException;
     List<Articulo> obtenerTodos() throws SQLException;
+    void actualizarArticulo(Articulo articulo) throws SQLException;
+    boolean existeArticuloPorCodigo(String codigo);
 }

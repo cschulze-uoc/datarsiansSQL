@@ -7,6 +7,7 @@ import datarsians.modelo.Articulo;
 import datarsians.modelo.Cliente;
 import datarsians.modelo.Pedido;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class VistaPedidos {
@@ -22,7 +23,7 @@ public class VistaPedidos {
         this.vistaCliente = vistaCliente;
     }
 
-    public void menuPedidos() {
+    public void menuPedidos() throws SQLException {
         boolean salir = false;
         int opcion;
 
@@ -57,7 +58,7 @@ public class VistaPedidos {
     }
 
 
-    private void realizarPedido() {
+    private void realizarPedido() throws SQLException {
 
         // Verificar Cliente
         Cliente cliente = null;
@@ -102,7 +103,7 @@ public class VistaPedidos {
         System.out.println(resultado);
     }
 
-    private void mostrarPedidos(boolean enviados) {
+    private void mostrarPedidos(boolean enviados) throws SQLException {
         System.out.println("\n========== " + (enviados ? "PEDIDOS ENVIADOS" : "PEDIDOS PENDIENTES") + " ==========");
 
         int opcion = ConsoleHelper.SolicitarNumeroPorConsola(1, 2, "¿Desea filtrar por cliente?\n1. Sí\n2. No\n");
