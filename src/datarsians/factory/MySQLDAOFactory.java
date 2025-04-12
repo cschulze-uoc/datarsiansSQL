@@ -1,20 +1,21 @@
 package datarsians.factory;
 
 import datarsians.datos.ArticuloDAOImpl;
+import datarsians.datos.BBDD_Util;
 import datarsians.datos.ClienteDAOImpl;
 import datarsians.DAO.ArticuloDAO;
 import datarsians.DAO.ClienteDAO;
 import datarsians.DAO.PedidoDAO;
 import datarsians.datos.PedidoDAOImpl;
-import datarsians.datos.conexionBBDD;
+
 
 import java.sql.Connection;
 
 public class MySQLDAOFactory extends DAOFactory {
-    private Connection conn;
+    private final Connection conn;
 
     public MySQLDAOFactory() {
-        this.conn = conexionBBDD.getConnection();
+        this.conn = BBDD_Util.getConnection();
     }
 
     @Override
