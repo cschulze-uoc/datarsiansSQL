@@ -1,16 +1,16 @@
 package datarsians.vista;
-
-
 import datarsians.controlador.ControladorArticulo;
 import datarsians.controlador.ControladorCliente;
 import datarsians.controlador.ControladorPedidos;
 
-public class Menu {
+import java.sql.SQLException;
+
+public class MenuPrincipal {
     private final VistaCliente vistaCliente;
     private final VistaArticulos vistaArticulos;
     private final VistaPedidos vistaPedidos;
 
-    public Menu(ControladorArticulo controladorArticulo, ControladorCliente controladorCliente, ControladorPedidos controladorPedidos) {
+    public MenuPrincipal(ControladorArticulo controladorArticulo, ControladorCliente controladorCliente, ControladorPedidos controladorPedidos) throws SQLException {
         this.vistaCliente = new VistaCliente(controladorCliente);
         this.vistaArticulos = new VistaArticulos(controladorArticulo);
         this.vistaPedidos = new VistaPedidos(
@@ -18,11 +18,10 @@ public class Menu {
                 controladorCliente,
                 controladorPedidos,
                 this.vistaCliente);
+        mostrarMenuPrincipal();
     }
 
-
-
-    public void mostrarMenuPrincipal() {
+    public void mostrarMenuPrincipal() throws SQLException {
         boolean salir = false;
         int opcion;
 
@@ -51,14 +50,5 @@ public class Menu {
             }
         } while (!salir);
     }
-
-
-
-
-
-
-
-    // ****************************** CLIENTES *******************************
-
 
 }

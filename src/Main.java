@@ -1,18 +1,26 @@
 
+import datarsians.DAO.ArticuloDAO;
+import datarsians.DAO.ClienteDAO;
+import datarsians.DAO.PedidoDAO;
 import datarsians.controlador.ControladorArticulo;
 import datarsians.controlador.ControladorCliente;
 import datarsians.controlador.ControladorPedidos;
-import datarsians.modelo.Datos;
-import datarsians.vista.Menu;
+import datarsians.DAO.factory.DAOFactory;
+import datarsians.vista.MenuPrincipal;
+import java.sql.SQLException;
 
-public static void main(String[] args) {
-    Datos datos = new Datos();
-    // System.out.println( datos.cargarDatosDePrueba() );
+public static void main(String[] args) throws SQLException {
 
-    Menu menu = new Menu(
-            new ControladorArticulo(datos),
-            new ControladorCliente(datos),
-            new ControladorPedidos(datos)
+    DAOFactory factory = DAOFactory.getDAOFactory();
+
+    ClienteDAO clienteDAO = factory.getClienteDAO();
+    ArticuloDAO articuloDAO = factory.getArticuloDAO();
+    PedidoDAO pedidoDao = factory.getPedidoDAO();
+
+    new MenuPrincipal(
+            new ControladorArticulo(articuloDAO),
+            new ControladorCliente(clienteDAO),
+            new ControladorPedidos(articuloDAO, clienteDAO, pedidoDao)
     );
-    menu.mostrarMenuPrincipal();
+
 }

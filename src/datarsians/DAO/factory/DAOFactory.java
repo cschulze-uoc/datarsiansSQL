@@ -1,4 +1,4 @@
-package datarsians.factory;
+package datarsians.DAO.factory;
 
 import datarsians.DAO.ArticuloDAO;
 import datarsians.DAO.ClienteDAO;

@@ -1,4 +1,4 @@
-package datarsians.datos;
+package datarsians.DAO.MySQL;
 
 import datarsians.DAO.ArticuloDAO;
 import datarsians.DAO.ClienteDAO;

@@ -1,4 +1,4 @@
-package datarsians.datos;
+package datarsians.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ public class BBDD_Util {
     private static final String USER = "DatarUser";
     private static final String PASSWORD = "7KKdizpDZ81DyI2mn8QC";
 
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException {
         try {
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {

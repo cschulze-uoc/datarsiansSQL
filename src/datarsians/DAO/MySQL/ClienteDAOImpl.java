@@ -1,9 +1,12 @@
-package datarsians.datos;
+package datarsians.DAO.MySQL;
 
 import datarsians.DAO.ClienteDAO;
+import datarsians.excepciones.EmailDuplicado;
+import datarsians.excepciones.EmailNoValido;
 import datarsians.modelo.Cliente;
 import datarsians.modelo.ClienteEstandar;
 import datarsians.modelo.ClientePremium;
+import datarsians.utils.validations;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,23 +20,40 @@ public class ClienteDAOImpl implements ClienteDAO {
     }
 
     @Override
-    public void insertar(Cliente cliente) throws SQLException {
-        String sql = "INSERT INTO Cliente (email, nombre, domicilio, nif, tipo) VALUES (?, ?, ?, ?, ?)";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, cliente.getEmail());
-            stmt.setString(2, cliente.getNombre());
-            stmt.setString(3, cliente.getDomicilio());
-            stmt.setString(4, cliente.getNif());
-            stmt.setString(5, cliente instanceof ClientePremium ? "PREMIUM" : "ESTANDAR");
-            stmt.executeUpdate();
+    public void insertar(Cliente cliente) throws EmailDuplicado, EmailNoValido {
+        String email = cliente.getEmail();
+
+        if (!validations.esEmailValido(email)) {
+            throw new EmailNoValido("El email no es válido.");
+        }
+
+        try {
+            if (buscarPorEmail(email) != null) {
+                throw new EmailDuplicado("Error: El email ya está registrado.");
+            }
+
+            String sql = "INSERT INTO Cliente (email, nombre, domicilio, nif, tipo) VALUES (?, ?, ?, ?, ?)";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, cliente.getEmail());
+                stmt.setString(2, cliente.getNombre());
+                stmt.setString(3, cliente.getDomicilio());
+                stmt.setString(4, cliente.getNif());
+                stmt.setString(5, cliente instanceof ClientePremium ? "PREMIUM" : "ESTANDAR");
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error al agregar cliente en base de datos.");
         }
     }
 
     @Override
     public Cliente buscarPorEmail(String email) throws SQLException {
+        if (email == null || email.isBlank()) return null;
         String sql = "SELECT * FROM Cliente WHERE email = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, email);
+
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return construirClienteDesdeResultSet(rs);
@@ -66,4 +86,6 @@ public class ClienteDAOImpl implements ClienteDAO {
                 ? new ClientePremium(nombre, domicilio, nif, email)
                 : new ClienteEstandar(nombre, domicilio, nif, email);
     }
+
+
 }
