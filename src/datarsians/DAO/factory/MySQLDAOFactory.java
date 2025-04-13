@@ -40,4 +40,8 @@ public class MySQLDAOFactory extends DAOFactory {
         ArticuloDAO articuloDAO = getArticuloDAO();
         return new PedidoDAOImpl(conn, clienteDAO, articuloDAO);
     }
+    @Override
+    public Connection getConexion(){
+        return conn;
+    }
 }
