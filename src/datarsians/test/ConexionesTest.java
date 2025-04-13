@@ -5,8 +5,6 @@ import datarsians.DAO.factory.*;
 
 public class ConexionesTest {
 
-
-    public class ConexionTest {
         public static void main(String[] args) {
             var factory = DAOFactory.getDAOFactory();
             try (Connection conn = factory.getConexion()) {
@@ -15,5 +13,5 @@ public class ConexionesTest {
                 System.out.println("Error al conectar: " + e.getMessage());
             }
         }
-    }
+
 }
