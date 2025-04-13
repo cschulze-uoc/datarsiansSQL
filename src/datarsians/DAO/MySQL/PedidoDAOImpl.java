@@ -94,7 +94,7 @@ public class PedidoDAOImpl implements PedidoDAO {
             cs.execute();
         } catch (SQLException e) {
             // Si el procedimiento lanza una excepción con SIGNAL, se captura aquí
-            throw new SQLException("No se pudo eliminar el pedido: " + e.getMessage(), e);
+            throw new SQLException(e.getMessage(), e);
         }
     }
 }
