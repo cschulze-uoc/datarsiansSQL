@@ -1,5 +1,3 @@
-package datarsians.test;
-
 import datarsians.modelo.Articulo;
 import datarsians.modelo.Cliente;
 import datarsians.modelo.ClientePremium;

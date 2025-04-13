@@ -3,9 +3,9 @@ package datarsians.DAO.factory;
 import datarsians.DAO.MySQL.ArticuloDAOImpl;
 import datarsians.utils.BBDD_Util;
 import datarsians.DAO.MySQL.ClienteDAOImpl;
-import datarsians.DAO.ArticuloDAO;
-import datarsians.DAO.ClienteDAO;
-import datarsians.DAO.PedidoDAO;
+import datarsians.DAO.interfaz.ArticuloDAO;
+import datarsians.DAO.interfaz.ClienteDAO;
+import datarsians.DAO.interfaz.PedidoDAO;
 import datarsians.DAO.MySQL.PedidoDAOImpl;
 
 
