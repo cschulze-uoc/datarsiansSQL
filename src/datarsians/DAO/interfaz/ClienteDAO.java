@@ -1,4 +1,4 @@
-package datarsians.DAO;
+package datarsians.DAO.interfaz;
 
 import datarsians.excepciones.EmailDuplicado;
 import datarsians.excepciones.EmailNoValido;

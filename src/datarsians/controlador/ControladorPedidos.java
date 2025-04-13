@@ -1,8 +1,8 @@
 package datarsians.controlador;
 
-import datarsians.DAO.ArticuloDAO;
-import datarsians.DAO.ClienteDAO;
-import datarsians.DAO.PedidoDAO;
+import datarsians.DAO.interfaz.ArticuloDAO;
+import datarsians.DAO.interfaz.ClienteDAO;
+import datarsians.DAO.interfaz.PedidoDAO;
 import datarsians.modelo.Articulo;
 import datarsians.modelo.Cliente;
 import datarsians.modelo.Pedido;

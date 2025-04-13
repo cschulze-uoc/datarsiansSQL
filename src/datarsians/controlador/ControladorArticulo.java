@@ -1,6 +1,6 @@
 package datarsians.controlador;
 
-import datarsians.DAO.ArticuloDAO;
+import datarsians.DAO.interfaz.ArticuloDAO;
 import datarsians.modelo.Articulo;
 
 import java.sql.SQLException;

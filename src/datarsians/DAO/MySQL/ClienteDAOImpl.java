@@ -1,6 +1,6 @@
 package datarsians.DAO.MySQL;
 
-import datarsians.DAO.ClienteDAO;
+import datarsians.DAO.interfaz.ClienteDAO;
 import datarsians.excepciones.EmailDuplicado;
 import datarsians.excepciones.EmailNoValido;
 import datarsians.modelo.Cliente;
