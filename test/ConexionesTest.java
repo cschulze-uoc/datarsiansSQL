@@ -1,5 +1,3 @@
-package datarsians.test;
-
 import java.sql.Connection;
 import datarsians.DAO.factory.*;
 
