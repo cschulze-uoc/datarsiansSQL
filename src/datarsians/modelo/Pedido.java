@@ -78,7 +78,7 @@ public class Pedido {
     }
 
     public boolean esCancelable() {
-        long tiempoTranscurrido = Duration.between(fechaHoraPedido.toLocalTime(), LocalDateTime.now()).toMinutes();
+        long tiempoTranscurrido = Duration.between(fechaHoraPedido, LocalDateTime.now()).toMinutes();
         long tiempoLimite = articulo.getTiempoPreparacion();
         return tiempoTranscurrido <= tiempoLimite;
     }
