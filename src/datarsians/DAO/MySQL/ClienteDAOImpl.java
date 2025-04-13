@@ -1,6 +1,6 @@
 package datarsians.DAO.MySQL;
 
-import datarsians.DAO.ClienteDAO;
+import datarsians.DAO.interfaz.ClienteDAO;
 import datarsians.excepciones.EmailDuplicado;
 import datarsians.excepciones.EmailNoValido;
 import datarsians.modelo.Cliente;
@@ -75,6 +75,37 @@ public class ClienteDAOImpl implements ClienteDAO {
         return clientes;
     }
 
+    // Aquí utilizamos una Transaction para actualizar un conjunto de clientes de una vez. Si falla alguno, no se aplica ningún cambio.
+    @Override
+    public void actualizarClientes(List<Cliente> clientes) throws SQLException {
+        String sql = "UPDATE Cliente SET nombre = ?, domicilio = ?, nif = ?, tipo = ? WHERE email = ?";
+
+        try {
+            conn.setAutoCommit(false); // 🔒 Inicia la transacción
+
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                for (Cliente cliente : clientes) {
+                    stmt.setString(1, cliente.getNombre());
+                    stmt.setString(2, cliente.getDomicilio());
+                    stmt.setString(3, cliente.getNif());
+                    stmt.setString(4, cliente instanceof ClientePremium ? "PREMIUM" : "ESTANDAR");
+                    stmt.setString(5, cliente.getEmail());
+
+                    stmt.executeUpdate();
+                }
+            }
+
+            conn.commit(); // Confirma todos los cambios
+
+        } catch (SQLException ex) {
+            conn.rollback(); // Revierte todo si algo falla
+            throw new SQLException("Error al actualizar clientes. Se ha hecho rollback.", ex);
+
+        } finally {
+            conn.setAutoCommit(true); // Vuelve a activar el autocommit
+        }
+    }
+
     private Cliente construirClienteDesdeResultSet(ResultSet rs) throws SQLException {
         String tipo = rs.getString("tipo");
         String nombre = rs.getString("nombre");
@@ -86,6 +117,5 @@ public class ClienteDAOImpl implements ClienteDAO {
                 ? new ClientePremium(nombre, domicilio, nif, email)
                 : new ClienteEstandar(nombre, domicilio, nif, email);
     }
-
 
 }

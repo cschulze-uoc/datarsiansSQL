@@ -1,8 +1,6 @@
-package datarsians.test;
-
-import datarsians.DAO.*;
 import datarsians.DAO.factory.DAOFactory;
 import datarsians.DAO.factory.MySQLDAOFactory;
+import datarsians.DAO.interfaz.ArticuloDAO;
 import datarsians.modelo.Articulo;
 import java.util.List;
 

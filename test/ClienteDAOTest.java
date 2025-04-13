@@ -1,9 +1,6 @@
-package datarsians.test;
-
-
-import datarsians.DAO.*;
 import datarsians.DAO.factory.DAOFactory;
 import datarsians.DAO.factory.MySQLDAOFactory;
+import datarsians.DAO.interfaz.ClienteDAO;
 import datarsians.modelo.Cliente;
 import datarsians.modelo.ClienteEstandar;
 
