@@ -56,7 +56,7 @@ public class ControladorPedidos {
             pedidoDAO.eliminar(numeroPedido);
             return "Pedido eliminado correctamente";
         } catch (Exception e) {
-            return "Error al eliminar el pedido: " + e.getMessage();
+            return e.getMessage();
         }
     }
 
