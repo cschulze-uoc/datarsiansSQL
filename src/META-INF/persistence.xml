@@ -1,0 +1,24 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             version="3.0">
+    <persistence-unit name="datarsiansPU" transaction-type="RESOURCE_LOCAL">
+        <!-- Entidades -->
+        <class>datarsians.modelo.Articulo</class>
+        <class>datarsians.modelo.Cliente</class>
+        <class>datarsians.modelo.ClienteEstandar</class>
+        <class>datarsians.modelo.ClientePremium</class>
+        <class>datarsians.modelo.Pedido</class>
+
+        <!-- Configuración JDBC -->
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://schulzeserver.com:4306/datarsians"/>
+            <property name="jakarta.persistence.jdbc.user" value="DatarUser"/>
+            <property name="jakarta.persistence.jdbc.password" value="7KKdizpDZ81DyI2mn8QC"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- Hibernate settings -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,11 +1,30 @@
 package datarsians.modelo;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Articulo")
 public class Articulo {
+    @Id
+    @Column(name = "codigo")
     private String codigo;
+
+    @Column(name = "descripcion", nullable = false)
     private String descripcion;
+
+    @Column(name = "precio_venta", nullable = false)
     private double precioVenta;
+
+    @Column(name = "gastos_envio", nullable = false)
     private double gastosEnvio;
+
+    @Column(name = "tiempo_preparacion", nullable = false)
     private int tiempoPreparacion;
+
+    public Articulo() {}
 
     public Articulo(String codigo, String descripcion, double precioVenta, double gastosEnvio, int tiempoPreparacion) {
         this.codigo = codigo;
