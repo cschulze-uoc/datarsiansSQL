@@ -1,28 +1,49 @@
 package datarsians.modelo;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "Pedido")
 public class Pedido {
-    private static int contadorPedidos = 1;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "numero_pedido")
     private int numeroPedido;
+
+    @ManyToOne
+    @JoinColumn(name = "email_cliente", nullable = false)
     private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "codigo_articulo", nullable = false)
     private Articulo articulo;
+
+    @Column(name = "cantidad", nullable = false)
     private int cantidad;
+
+    @Column(name = "fecha_pedido", nullable = false)
     private LocalDateTime fechaHoraPedido;
 
+    public Pedido() {}
     public Pedido(Cliente cliente, Articulo articulo, int cantidad) {
-        this.numeroPedido = contadorPedidos++;
+
         this.cliente = cliente;
         this.articulo = articulo;
         this.cantidad = cantidad;
         this.fechaHoraPedido =  LocalDateTime.now();
     }
 
-
-    public static void setContadorPedidos(int contadorPedidos) {
-        Pedido.contadorPedidos = contadorPedidos;
-    }
 
     public void setNumeroPedido(int numeroPedido) {
         this.numeroPedido = numeroPedido;
@@ -64,9 +85,6 @@ public class Pedido {
         return fechaHoraPedido;
     }
 
-    public static int getContadorPedidos() {
-        return contadorPedidos;
-    }
     public double calcularPrecioPedido() {
         double precioArticulo = articulo.getPrecioVenta();
         double gastosEnvio = articulo.getGastosEnvio();

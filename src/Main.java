@@ -1,4 +1,5 @@
 
+import datarsians.DAO.factory.TipoDAO;
 import datarsians.DAO.interfaz.ArticuloDAO;
 import datarsians.DAO.interfaz.ClienteDAO;
 import datarsians.DAO.interfaz.PedidoDAO;
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 
 public static void main(String[] args) throws SQLException {
 
-    DAOFactory factory = DAOFactory.getDAOFactory();
+    DAOFactory factory = DAOFactory.getDAOFactory(TipoDAO.HIBERNATE);
 
     ClienteDAO clienteDAO = factory.getClienteDAO();
     ArticuloDAO articuloDAO = factory.getArticuloDAO();

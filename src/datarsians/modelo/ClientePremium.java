@@ -1,6 +1,14 @@
 package datarsians.modelo;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("PREMIUM")
 public class ClientePremium extends Cliente {
+
+    public ClientePremium() {}
+
     public ClientePremium(String nombre, String domicilio, String nif, String email) {
         super(nombre, domicilio, nif, email);
     }

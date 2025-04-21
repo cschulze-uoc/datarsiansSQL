@@ -15,5 +15,14 @@ public abstract class DAOFactory {
     public static DAOFactory getDAOFactory() {
         return new MySQLDAOFactory();
     }
+
+    public static DAOFactory getDAOFactory(TipoDAO tipo) {
+        return switch (tipo) {
+            case HIBERNATE -> new HibernateDAOFactory();
+            case MYSQL -> new MySQLDAOFactory();
+        };
+    }
 }
+
+
 
