@@ -1,15 +1,15 @@
-package datarsians.datos;
+package datarsians.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class conexionBBDD {
+public class BBDD_Util {
     private static final String URL = "jdbc:mysql://schulzeserver.com:4306/datarsians";
     private static final String USER = "DatarUser";
     private static final String PASSWORD = "7KKdizpDZ81DyI2mn8QC";
 
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException {
         try {
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {

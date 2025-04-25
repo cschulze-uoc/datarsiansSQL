@@ -1,8 +1,8 @@
-package datarsians.datos;
+package datarsians.DAO.MySQL;
 
-import datarsians.DAO.ArticuloDAO;
-import datarsians.DAO.ClienteDAO;
-import datarsians.DAO.PedidoDAO;
+import datarsians.DAO.interfaz.ArticuloDAO;
+import datarsians.DAO.interfaz.ClienteDAO;
+import datarsians.DAO.interfaz.PedidoDAO;
 import datarsians.modelo.Articulo;
 import datarsians.modelo.Cliente;
 import datarsians.modelo.Pedido;
@@ -94,7 +94,7 @@ public class PedidoDAOImpl implements PedidoDAO {
             cs.execute();
         } catch (SQLException e) {
             // Si el procedimiento lanza una excepción con SIGNAL, se captura aquí
-            throw new SQLException("No se pudo eliminar el pedido: " + e.getMessage(), e);
+            throw new SQLException(e.getMessage(), e);
         }
     }
 }
