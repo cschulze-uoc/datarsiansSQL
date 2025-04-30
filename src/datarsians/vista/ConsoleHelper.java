@@ -1,9 +1,9 @@
 package datarsians.vista;
 
-import datarsians.excepciones.DniDuplicado;
+import datarsians.excepciones.NifDuplicado;
 import datarsians.excepciones.EmailDuplicado;
 import datarsians.excepciones.EmailNoValido;
-import datarsians.utils.validations;
+import datarsians.utils.ClienteValidator;
 
 
 import java.time.LocalDate;
@@ -66,14 +66,7 @@ public class ConsoleHelper {
             email = teclado.nextLine().trim();
 
             try {
-                if (!validations.esEmailValido(email)) {
-                    throw new EmailNoValido("Error: El email ingresado no es válido.");
-                }
-
-                if (listaEmails != null && listaEmails.contains(email)) {
-                    throw new EmailDuplicado("Error: El email ya está registrado.");
-                }
-
+                ClienteValidator.validarEmail(email, listaEmails);
                 return email;
 
             } catch (EmailNoValido | EmailDuplicado e){
@@ -232,26 +225,21 @@ public class ConsoleHelper {
         return opciones.get(seleccion - 1);
     }
 
-    public static String SolicitarDniPorConsola(String prompt, List<String> listaDnis) {
-        String dni;
+    public static String SolicitarNifPorConsola(String prompt, List<String> listaNifs) {
+        String nif;
         while (true) {
             System.out.println(prompt);
-            dni = teclado.nextLine().trim();
-
-            if (dni.length() !=9) {
-                System.out.println("Error: El DNI debe tener 9 caracteres.");
-                continue;
-            }
+            nif = teclado.nextLine().trim();
 
             try {
-                if (listaDnis.contains(dni)) {
-                    throw new DniDuplicado("Error: El DNI ingresado ya existe.");
-                }
-                return dni;
-            } catch (DniDuplicado e) {
+
+                ClienteValidator.validarNif(nif, listaNifs);
+                return nif;
+
+            } catch (NifDuplicado e) {
                 System.out.println(e.getMessage());
                 System.out.println("Desea intentar de nuevo?");
-                System.out.println("1. Volver a ingresar el DNI.");
+                System.out.println("1. Volver a ingresar el NIF.");
                 System.out.println("2. Anular gravación.");
                 int seleccion = SolicitarNumeroPorConsola( 1, 2, "Seleccione una opción: ");
 
