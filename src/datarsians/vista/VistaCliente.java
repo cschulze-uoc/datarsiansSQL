@@ -54,12 +54,16 @@ public class VistaCliente {
 
         String nombre = ConsoleHelper.SolicitarTextoPorConsola("Ingrese el nombre del cliente:", null, false);
         String domicilio = ConsoleHelper.SolicitarTextoPorConsola("Ingrese el domicilio:", null, false);
-        String nif = ConsoleHelper.SolicitarDniPorConsola("Ingrese el NIF:", listaDnis);
+        String nif = ConsoleHelper.SolicitarNifPorConsola("Ingrese el NIF:", listaDnis);
         if(nif == null) {
             System.out.println("Registro cancelado.");
             return null;
         }
         String email = ConsoleHelper.SolicitarEmailPorConsola("Ingrese el email:", listaEmails);
+        if (email == null)  {
+            System.out.println("Registro cancelado.");
+            return null;
+        }
 
         int tipoCliente = ConsoleHelper.SolicitarNumeroPorConsola(1, 2, "Seleccione el tipo de cliente (1. Estándar, 2. Premium): ");
         Cliente nuevoCliente = (tipoCliente == 1)

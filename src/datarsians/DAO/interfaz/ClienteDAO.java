@@ -10,6 +10,7 @@ import java.util.List;
 public interface ClienteDAO {
     void insertar(Cliente cliente) throws EmailDuplicado, EmailNoValido;
     Cliente buscarPorEmail(String email) throws SQLException;
+    Cliente buscarPorNif(String nif) throws SQLException;
     List<Cliente> obtenerTodos() throws SQLException;
     void actualizarClientes(List<Cliente> clientes) throws SQLException;
 }

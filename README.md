@@ -33,12 +33,9 @@ La aplicación implementa las siguientes funcionalidades:
 *   DAO (Data Access Object)
 *   Transacciones
 *   Procedimientos Almacenados
-*   ORM (Mapeo Objeto-Relacional) - *Fases posteriores*
+*   ORM (Mapeo Objeto-Relacional)
 *   JavaFX - *Fases posteriores*
 
-## Instrucciones de Uso
-
-*(Estas instrucciones se completarán a medida que avance el desarrollo del proyecto)*
 
 ## Desarrolladores
 

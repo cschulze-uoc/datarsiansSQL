@@ -3,10 +3,11 @@ package datarsians.DAO.MySQL;
 import datarsians.DAO.interfaz.ClienteDAO;
 import datarsians.excepciones.EmailDuplicado;
 import datarsians.excepciones.EmailNoValido;
+import datarsians.excepciones.NifDuplicado;
 import datarsians.modelo.Cliente;
 import datarsians.modelo.ClienteEstandar;
 import datarsians.modelo.ClientePremium;
-import datarsians.utils.validations;
+import datarsians.utils.Validations;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -22,14 +23,18 @@ public class ClienteDAOImpl implements ClienteDAO {
     @Override
     public void insertar(Cliente cliente) throws EmailDuplicado, EmailNoValido {
         String email = cliente.getEmail();
+        String nif = cliente.getNif();
 
-        if (!validations.esEmailValido(email)) {
+        if (!Validations.esEmailValido(email)) {
             throw new EmailNoValido("El email no es válido.");
         }
 
         try {
             if (buscarPorEmail(email) != null) {
                 throw new EmailDuplicado("Error: El email ya está registrado.");
+            }
+            if (buscarPorNif(nif) != null) {
+                throw new NifDuplicado("Error: El NIF ya está registrado.");
             }
 
             String sql = "INSERT INTO Cliente (email, nombre, domicilio, nif, tipo) VALUES (?, ?, ?, ?, ?)";
@@ -116,6 +121,22 @@ public class ClienteDAOImpl implements ClienteDAO {
         return "PREMIUM".equals(tipo)
                 ? new ClientePremium(nombre, domicilio, nif, email)
                 : new ClienteEstandar(nombre, domicilio, nif, email);
+    }
+
+    @Override
+    public Cliente buscarPorNif(String nif) throws SQLException {
+        if (nif == null || nif.isBlank()) return null;
+        String sql = "SELECT * FROM Cliente WHERE nif = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, nif);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return construirClienteDesdeResultSet(rs);
+                }
+            }
+        }
+        return null;
     }
 
 }
