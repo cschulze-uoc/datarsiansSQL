@@ -3,6 +3,8 @@ package datarsians.controlador;
 import datarsians.DAO.interfaz.ClienteDAO;
 import datarsians.excepciones.EmailDuplicado;
 import datarsians.excepciones.EmailNoValido;
+import datarsians.excepciones.NifDuplicado;
+import datarsians.excepciones.NifNoValido;
 import datarsians.modelo.Cliente;
 
 import java.sql.SQLException;
@@ -25,6 +27,11 @@ public class ControladorCliente {
         }catch (EmailNoValido e) {
             return("Error: " + e.getMessage());
         }catch (EmailDuplicado e) {
+            return("Error: " + e.getMessage());
+        } catch (NifDuplicado e) {
+            return("Error: " + e.getMessage());
+        } catch (NifNoValido e)
+        {
             return("Error: " + e.getMessage());
         }
     }
