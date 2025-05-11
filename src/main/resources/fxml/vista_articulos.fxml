@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="datarsians.vista.javafx.VistaArticulosController">
+    <top>
+        <Label text="Gestión de Artículos" style="-fx-font-size: 20px; -fx-font-weight: bold;" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <TableView fx:id="tablaArticulos" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="100"/>
+                <TableColumn fx:id="colDescripcion" text="Descripción" prefWidth="200"/>
+                <TableColumn fx:id="colPrecioVenta" text="Precio Venta" prefWidth="100"/>
+                <TableColumn fx:id="colGastosEnvio" text="Gastos Envío" prefWidth="100"/>
+                <TableColumn fx:id="colTiempoPreparacion" text="Tiempo Prep. (min)" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button text="Añadir Artículo" onAction="#abrirFormularioArticulo"/>
+        </HBox>
+    </bottom>
+</BorderPane>

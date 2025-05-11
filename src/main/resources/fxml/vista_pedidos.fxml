@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="datarsians.vista.javafx.VistaPedidosController">
+    <top>
+        <Label text="Gestión de Pedidos" style="-fx-font-size: 20px; -fx-font-weight: bold;" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <TableView fx:id="tablaPedidos" prefHeight="750" prefWidth="700">
+            <columns>
+                <TableColumn fx:id="colNumero" text="Pedido" prefWidth="50"/>
+                <TableColumn fx:id="colCliente" text="Cliente" prefWidth="200"/>
+                <TableColumn fx:id="colArticulo" text="Artículo" prefWidth="200"/>
+                <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="75"/>
+                <TableColumn fx:id="colFecha" text="Fecha" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button fx:id="btnNuevoPedido" text="Añadir Pedido" onAction="#abrirFormularioPedido"/>
+        </HBox>
+    </bottom>
+</BorderPane>
