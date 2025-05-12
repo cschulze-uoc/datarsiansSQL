@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="datarsians.vista.javafx.VistaClientesController">
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Gestión de Clientes" style="-fx-font-size: 18px;" />
+            <HBox spacing="10">
+                <Label text="Filtrar por tipo:"/>
+                <ComboBox fx:id="filtroTipoCliente" onAction="#filtrarClientes"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tablaClientes" prefHeight="300">
+            <columns>
+                <TableColumn text="Nombre" fx:id="colNombre" />
+                <TableColumn text="Email" fx:id="colEmail" />
+                <TableColumn text="NIF" fx:id="colNif" />
+                <TableColumn text="Tipo" fx:id="colTipo" />
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+            <Button text="Nuevo Cliente" onAction="#abrirFormularioCliente"/>
+            <Button text="Cerrar" onAction="#cerrarVentana"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

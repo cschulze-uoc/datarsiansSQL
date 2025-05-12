@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="datarsians.vista.javafx.FormularioClienteController" prefWidth="400" prefHeight="500">
+    <VBox spacing="10" layoutX="20" layoutY="20" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+        <Label text="Nuevo Cliente" style="-fx-font-size: 18px;"/>
+
+        <TextField fx:id="campoNombre" promptText="Nombre"/>
+        <TextField fx:id="campoDomicilio" promptText="Domicilio"/>
+        <TextField fx:id="campoNif" promptText="NIF"/>
+        <TextField fx:id="campoEmail" promptText="Email"/>
+
+        <HBox spacing="10">
+            <Label text="Tipo de Cliente:"/>
+            <ComboBox fx:id="comboTipo"/>
+        </HBox>
+
+        <Label fx:id="lblError" textFill="red"/>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Guardar" onAction="#guardarCliente"/>
+            <Button text="Cancelar" onAction="#cerrarVentana"/>
+        </HBox>
+    </VBox>
+</AnchorPane>
