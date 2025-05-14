@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -24,6 +25,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 public class VistaPedidosController {
 
@@ -90,6 +92,7 @@ public class VistaPedidosController {
 
             Stage dialog = new Stage();
             dialog.setTitle("Nuevo Artículo");
+            dialog.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/DatarsiansIco.png"))));
             dialog.initModality(Modality.APPLICATION_MODAL);
             dialog.setScene(new Scene(pane));
             dialog.showAndWait();
