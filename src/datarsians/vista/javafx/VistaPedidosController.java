@@ -89,7 +89,7 @@ public class VistaPedidosController {
             formController.setOnPedidoGuardado(this::cargarPedidos);
 
             Stage dialog = new Stage();
-            dialog.setTitle("Nuevo Artículo");
+            dialog.setTitle("Nuevo Pedido");
             dialog.initModality(Modality.APPLICATION_MODAL);
             dialog.setScene(new Scene(pane));
             dialog.showAndWait();

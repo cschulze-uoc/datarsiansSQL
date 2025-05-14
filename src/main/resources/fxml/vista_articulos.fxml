@@ -4,13 +4,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="datarsians.vista.javafx.VistaArticulosController">
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="datarsians.vista.javafx.VistaArticulosController"
+            style="-fx-background-color: linear-gradient(to bottom, #e3f2fd, #ffffff);">
+
     <top>
-        <Label text="Gestión de Artículos" style="-fx-font-size: 20px; -fx-font-weight: bold;" BorderPane.alignment="CENTER"/>
+        <Label text="Gestión de Artículos"
+               BorderPane.alignment="CENTER"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1e4d7b; -fx-padding: 20;"/>
     </top>
 
     <center>
-        <TableView fx:id="tablaArticulos" prefHeight="400">
+        <TableView fx:id="tablaArticulos" prefHeight="400"
+                   style="-fx-background-color: white; -fx-border-color: #cfd8dc; -fx-border-radius: 4;">
             <columns>
                 <TableColumn fx:id="colCodigo" text="Código" prefWidth="100"/>
                 <TableColumn fx:id="colDescripcion" text="Descripción" prefWidth="200"/>
@@ -24,9 +30,11 @@
     <bottom>
         <HBox spacing="10" alignment="CENTER_RIGHT">
             <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
+                <Insets top="10" right="20" bottom="20" left="10"/>
             </padding>
-            <Button text="Añadir Artículo" onAction="#abrirFormularioArticulo"/>
+            <Button text="Añadir Artículo"
+                    onAction="#abrirFormularioArticulo"
+                    style="-fx-background-color: #1e88e5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8 16;" />
         </HBox>
     </bottom>
 </BorderPane>
