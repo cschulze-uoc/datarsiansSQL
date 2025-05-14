@@ -2,26 +2,57 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="datarsians.vista.javafx.FormularioClienteController" prefWidth="400" prefHeight="500">
-    <VBox spacing="10" layoutX="20" layoutY="20" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
-        <Label text="Nuevo Cliente" style="-fx-font-size: 18px;"/>
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="datarsians.vista.javafx.FormularioClienteController"
+            prefWidth="400" prefHeight="500"
+            style="-fx-background-color: linear-gradient(to bottom, #e3f2fd, #ffffff);">
 
-        <TextField fx:id="campoNombre" promptText="Nombre"/>
-        <TextField fx:id="campoDomicilio" promptText="Domicilio"/>
-        <TextField fx:id="campoNif" promptText="NIF"/>
-        <TextField fx:id="campoEmail" promptText="Email"/>
+    <VBox spacing="20"
+          AnchorPane.topAnchor="20"
+          AnchorPane.leftAnchor="20"
+          AnchorPane.rightAnchor="20"
+          AnchorPane.bottomAnchor="20"
+          style="-fx-padding: 20;">
 
-        <HBox spacing="10">
-            <Label text="Tipo de Cliente:"/>
-            <ComboBox fx:id="comboTipo"/>
+        <Label text="Nuevo Cliente"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1e4d7b;" />
+
+        <TextField fx:id="campoNombre"
+                   promptText="Nombre"
+                   style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 4;" />
+
+        <TextField fx:id="campoDomicilio"
+                   promptText="Domicilio"
+                   style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 4;" />
+
+        <TextField fx:id="campoNif"
+                   promptText="NIF"
+                   style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 4;" />
+
+        <TextField fx:id="campoEmail"
+                   promptText="Email"
+                   style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 4;" />
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Tipo de Cliente:"
+                   style="-fx-text-fill: #2c3e50;" />
+            <ComboBox fx:id="comboTipo"
+                      style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 4;" />
         </HBox>
 
-        <Label fx:id="lblError" textFill="red"/>
+        <Label fx:id="lblError"
+               textFill="red"
+               style="-fx-font-size: 13px;" />
 
-        <HBox spacing="10" alignment="CENTER">
-            <Button text="Guardar" onAction="#guardarCliente"/>
-            <Button text="Cancelar" onAction="#cerrarVentana"/>
+        <HBox spacing="15" alignment="CENTER_RIGHT">
+            <Button text="Guardar"
+                    onAction="#guardarCliente"
+                    style="-fx-background-color: #1e88e5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" />
+            <Button text="Cancelar"
+                    onAction="#cerrarVentana"
+                    style="-fx-background-color: #cfd8dc; -fx-text-fill: #333; -fx-background-radius: 5;" />
         </HBox>
     </VBox>
 </AnchorPane>

@@ -82,13 +82,13 @@ public class FormularioPedidoController {
     }
     public static void mostrar(Runnable onClose) {
         try {
-            FXMLLoader loader = new FXMLLoader(FormularioClienteController.class.getResource("/fxml/formulario_pedido.fxml"));
+            FXMLLoader loader = new FXMLLoader(FormularioPedidoController.class.getResource("/fxml/formulario_pedido.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = new Stage();
             stage.getIcons().add(new Image(Objects.requireNonNull(FormularioPedidoController.class.getResourceAsStream("/img/DatarsiansIco.png"))));
 
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Nuevo Cliente");
+            stage.setTitle("Nuevo Pedido");
             stage.setScene(scene);
 
             FormularioPedidoController controlador = loader.getController();

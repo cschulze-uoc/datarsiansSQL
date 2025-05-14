@@ -4,39 +4,46 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="datarsians.vista.javafx.VistaClientesController">
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="datarsians.vista.javafx.VistaClientesController"
+            style="-fx-background-color: linear-gradient(to bottom, #e3f2fd, #ffffff);">
 
     <top>
-        <VBox spacing="10">
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
-            <Label text="Gestión de Clientes" style="-fx-font-size: 18px;" />
-            <HBox spacing="10">
-                <Label text="Filtrar por tipo:"/>
-                <ComboBox fx:id="filtroTipoCliente" onAction="#filtrarClientes"/>
+        <VBox spacing="10"
+              style="-fx-padding: 20;">
+            <Label text="Gestión de Clientes"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1e4d7b;" />
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Filtrar por tipo:"
+                       style="-fx-text-fill: #2c3e50;" />
+                <ComboBox fx:id="filtroTipoCliente"
+                          onAction="#filtrarClientes"
+                          style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 4;" />
             </HBox>
         </VBox>
     </top>
 
     <center>
-        <TableView fx:id="tablaClientes" prefHeight="300">
+        <TableView fx:id="tablaClientes" prefHeight="300"
+                   style="-fx-background-color: white; -fx-border-color: #cfd8dc; -fx-border-radius: 4;">
             <columns>
-                <TableColumn text="Nombre" fx:id="colNombre" />
-                <TableColumn text="Email" fx:id="colEmail" />
-                <TableColumn text="NIF" fx:id="colNif" />
-                <TableColumn text="Tipo" fx:id="colTipo" />
+                <TableColumn text="Nombre" fx:id="colNombre"/>
+                <TableColumn text="Email" fx:id="colEmail"/>
+                <TableColumn text="NIF" fx:id="colNif"/>
+                <TableColumn text="Tipo" fx:id="colTipo"/>
             </columns>
         </TableView>
     </center>
 
     <bottom>
-        <HBox spacing="10" alignment="CENTER">
-            <padding>
-                <Insets top="10" bottom="10" left="10" right="10"/>
-            </padding>
-            <Button text="Nuevo Cliente" onAction="#abrirFormularioCliente"/>
-            <Button text="Cerrar" onAction="#cerrarVentana"/>
+        <HBox spacing="15" alignment="CENTER_RIGHT"
+              style="-fx-padding: 15;">
+            <Button text="Nuevo Cliente"
+                    onAction="#abrirFormularioCliente"
+                    style="-fx-background-color: #1e88e5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8 16;" />
+            <Button text="Cerrar"
+                    onAction="#cerrarVentana"
+                    style="-fx-background-color: #cfd8dc; -fx-text-fill: #333; -fx-background-radius: 5; -fx-padding: 8 16;" />
         </HBox>
     </bottom>
 
