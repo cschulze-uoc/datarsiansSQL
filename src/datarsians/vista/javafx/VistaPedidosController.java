@@ -181,6 +181,10 @@ public class VistaPedidosController {
         alert.setTitle("Información");
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
+
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/img/DatarsiansIco.png")));
+
         alert.showAndWait();
     }
 }
