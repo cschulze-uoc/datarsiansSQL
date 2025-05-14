@@ -164,6 +164,8 @@ public class VistaPedidosController {
         confirmacion.setTitle("Confirmar eliminación");
         confirmacion.setHeaderText(null);
         confirmacion.setContentText("¿Estás seguro de que deseas eliminar el pedido #" + pedidoSeleccionado.getNumeroPedido() + "?");
+        Stage stage = (Stage) confirmacion.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/img/DatarsiansIco.png")));
 
         // Esperar la respuesta del usuario
         confirmacion.showAndWait().ifPresent(respuesta -> {
