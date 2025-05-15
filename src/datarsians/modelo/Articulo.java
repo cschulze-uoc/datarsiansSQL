@@ -76,8 +76,7 @@ public class Articulo {
 
     @Override
     public String toString() {
-        return "\n Artículo\n" +
-                "   Código          : " + codigo + "\n" +
+        return  "Artículo           : " + codigo +"\n" +
                 "   Descripción     : " + descripcion + "\n" +
                 "   Precio Venta    : " + String.format("%.2f", precioVenta) + "€\n" +
                 "   Gastos Envío    : " + String.format("%.2f", gastosEnvio) + "€\n" +
