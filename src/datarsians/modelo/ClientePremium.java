@@ -25,12 +25,13 @@ public class ClientePremium extends Cliente {
 
     @Override
     public String toString() {
-        return "  Cliente Premium\n" +
+        return
                 "   Nombre      : " + getNombre() + "\n" +
                 "   Domicilio   : " + getDomicilio() + "\n" +
                 "   NIF         : " + getNif() + "\n" +
                 "   Email       : " + getEmail() + "\n" +
                 "   Cuota Anual : " + obtenerCuotaAnual() + "\n" +
-                "   Descuento Envío: " + obtenerDescuentoEnvio() + "\n";
+                "   Descuento Envío: " + obtenerDescuentoEnvio() + "\n" +
+                        "   Cliente Premium";
     }
 }

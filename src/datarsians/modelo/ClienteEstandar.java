@@ -25,11 +25,12 @@ public class ClienteEstandar extends Cliente{
 
     @Override
     public String toString() {
-        return "  Cliente Estándar\n" +
+        return
                 "   Nombre     : " + getNombre() + "\n" +
                 "   Domicilio  : " + getDomicilio() + "\n" +
                 "   NIF        : " + getNif() + "\n" +
                 "   Email      : " + getEmail() + "\n" +
-                "   Cuota Anual: 0€ (No aplica descuento en envío)";
+                "   Cuota Anual: 0€ (No aplica descuento en envío)\n" +
+                "   Cliente Estándar";
     }
 }

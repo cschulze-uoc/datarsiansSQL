@@ -6,7 +6,7 @@
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="datarsians.vista.javafx.FormularioPedidoController"
-            prefWidth="400" prefHeight="500"
+            prefWidth="400" prefHeight="375"
             style="-fx-background-color: linear-gradient(to bottom, #e3f2fd, #ffffff);">
 
     <VBox spacing="20"
@@ -23,6 +23,7 @@
             <Label text="Cliente:"
                    style="-fx-text-fill: #2c3e50;" />
             <ComboBox fx:id="comboClientes"
+                      prefWidth="325"
                       promptText="Selecciona un cliente"
                       style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 4;" />
         </VBox>
@@ -31,6 +32,7 @@
             <Label text="Artículo:"
                    style="-fx-text-fill: #2c3e50;" />
             <ComboBox fx:id="comboArticulos"
+                      prefWidth="375"
                       promptText="Selecciona un artículo"
                       style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 4;" />
         </VBox>
@@ -39,6 +41,7 @@
             <Label text="Cantidad:"
                    style="-fx-text-fill: #2c3e50;" />
             <TextField fx:id="campoCantidad"
+                       prefWidth="275"
                        promptText="Cantidad"
                        style="-fx-background-color: white; -fx-border-color: #90caf9; -fx-border-radius: 4;" />
         </VBox>

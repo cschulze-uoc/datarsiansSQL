@@ -6,7 +6,7 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="datarsians.vista.javafx.MenuPrincipalController"
-            prefWidth="660" prefHeight="440"
+            prefWidth="660" prefHeight="400"
             style="-fx-background-color: linear-gradient(to bottom, #e3f2fd, #ffffff);">
 
     <top>
