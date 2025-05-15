@@ -4,29 +4,54 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="datarsians.vista.javafx.VistaPedidosController">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="datarsians.vista.javafx.VistaPedidosController"
+            style="-fx-background-color: linear-gradient(to bottom, #e3f2fd, #ffffff);">
+    <fx:define>
+        <ToggleGroup fx:id="filtroEstadoToggleGroup"/>
+    </fx:define>
     <top>
-        <Label text="Gestión de Pedidos" style="-fx-font-size: 20px; -fx-font-weight: bold;" BorderPane.alignment="CENTER"/>
+        <Label text="Gestión de Pedidos"
+               BorderPane.alignment="CENTER"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1e4d7b; -fx-padding: 20;"/>
     </top>
 
     <center>
-        <TableView fx:id="tablaPedidos" prefHeight="750" prefWidth="700">
+        <TableView fx:id="tablaPedidos" prefHeight="750" prefWidth="900"
+                   style="-fx-background-color: white; -fx-border-color: #cfd8dc; -fx-border-radius: 4;">
             <columns>
                 <TableColumn fx:id="colNumero" text="Pedido" prefWidth="50"/>
                 <TableColumn fx:id="colCliente" text="Cliente" prefWidth="200"/>
                 <TableColumn fx:id="colArticulo" text="Artículo" prefWidth="200"/>
                 <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="75"/>
                 <TableColumn fx:id="colFecha" text="Fecha" prefWidth="150"/>
+                <TableColumn fx:id="colPrecio" text="Precio Total" prefWidth="100"/>
+                <TableColumn fx:id="colEnviado" text="Cancelable" prefWidth="100"/>
             </columns>
         </TableView>
     </center>
 
     <bottom>
-        <HBox spacing="10" alignment="CENTER_RIGHT">
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
-            <Button fx:id="btnNuevoPedido" text="Añadir Pedido" onAction="#abrirFormularioPedido"/>
-        </HBox>
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <padding>
+                    <Insets top="10" left="10" bottom="20" right="20"/>
+                </padding>
+
+                <Label text="Filtrar por estado:"/>
+                <RadioButton fx:id="radioTodos" text="Todos" selected="true" toggleGroup="$filtroEstadoToggleGroup" onAction="#filtrarPedidos"/>
+                <RadioButton fx:id="radioEnviados" text="Enviados" toggleGroup="$filtroEstadoToggleGroup" onAction="#filtrarPedidos"/>
+                <RadioButton fx:id="radioNoEnviados" text="No Enviados" toggleGroup="$filtroEstadoToggleGroup" onAction="#filtrarPedidos"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <padding>
+                    <Insets top="10" right="20" bottom="20" left="10"/>
+                </padding>
+                <Button fx:id="btnEliminarPedido" text="Eliminar Pedido" onAction="#eliminarPedido"
+                        style="-fx-background-color: #fe1010; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 10 20;"/>
+                <Button fx:id="btnNuevoPedido" text="Añadir Pedido" onAction="#abrirFormularioPedido"
+                        style="-fx-background-color: #1e88e5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 10 20;" />
+            </HBox>
+        </VBox>
     </bottom>
 </BorderPane>
