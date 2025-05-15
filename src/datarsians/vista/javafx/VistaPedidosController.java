@@ -173,6 +173,7 @@ public class VistaPedidosController {
                 String resultado = controladorPedidos.EliminarPedido(pedidoSeleccionado.getNumeroPedido());
                 mostrarAlerta(resultado);
                 cargarPedidos(); // refrescar la tabla
+                radioTodos.fire();
             }
         });
     }
