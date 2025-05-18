@@ -1,5 +1,4 @@
 import datarsians.DAO.factory.DAOFactory;
-import datarsians.DAO.factory.MySQLDAOFactory;
 import datarsians.DAO.factory.TipoDAO;
 import datarsians.DAO.interfaz.ArticuloDAO;
 import datarsians.modelo.Articulo;
